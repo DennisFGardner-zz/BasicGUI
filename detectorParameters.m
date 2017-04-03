@@ -22,7 +22,7 @@ function varargout = detectorParameters(varargin)
 
 % Edit the above text to modify the response to help detectorParameters
 
-% Last Modified by GUIDE v2.5 28-Mar-2017 20:44:09
+% Last Modified by GUIDE v2.5 28-Mar-2017 22:21:02
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -71,3 +71,92 @@ function varargout = detectorParameters_OutputFcn(hObject, eventdata, handles)
 
 % Get default command line output from handles structure
 varargout{1} = handles.output;
+
+
+% --- Executes when user attempts to close figure1.
+function figure1_CloseRequestFcn(hObject, eventdata, handles)
+% hObject    handle to figure1 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+fprintf('saving detector parameters\n')
+% here is where I want to save the parameters
+%
+% detectorParameters.ccdN = handles.ccdN
+path2save = [pwd,'\','detectorParameters']
+A = magic(3);
+save(path2save, A)
+%
+
+% Hint: delete(hObject) closes the figure
+delete(hObject);
+
+
+
+function ccdN_Callback(hObject, eventdata, handles)
+% hObject    handle to ccdN (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hints: get(hObject,'String') returns contents of ccdN as text
+%        str2double(get(hObject,'String')) returns contents of ccdN as a double
+handles.ccdN = str2double(get(hObject,'String'));
+
+
+% --- Executes during object creation, after setting all properties.
+function ccdN_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to ccdN (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+% Hint: edit controls usually have a white background on Windows.
+%       See ISPC and COMPUTER.
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
+
+
+
+function ccdM_Callback(hObject, eventdata, handles)
+% hObject    handle to ccdM (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hints: get(hObject,'String') returns contents of ccdM as text
+%        str2double(get(hObject,'String')) returns contents of ccdM as a double
+
+
+% --- Executes during object creation, after setting all properties.
+function ccdM_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to ccdM (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+% Hint: edit controls usually have a white background on Windows.
+%       See ISPC and COMPUTER.
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
+
+
+
+function px_Callback(hObject, eventdata, handles)
+% hObject    handle to px (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hints: get(hObject,'String') returns contents of px as text
+%        str2double(get(hObject,'String')) returns contents of px as a double
+
+
+% --- Executes during object creation, after setting all properties.
+function px_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to px (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+% Hint: edit controls usually have a white background on Windows.
+%       See ISPC and COMPUTER.
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
