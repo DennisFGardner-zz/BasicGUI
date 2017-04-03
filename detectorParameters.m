@@ -85,7 +85,7 @@ fprintf('saving detector parameters\n')
 % detectorParameters.ccdN = handles.ccdN
 path2save = [pwd,'\','detectorParameters']
 A = magic(3);
-save(path2save, A)
+save(path2save, 'A')
 %
 
 % Hint: delete(hObject) closes the figure
